@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/pico.min.css" />
+    <script src="theme-switcher.js" defer></script>
+    <script src="planner.js" defer></script>
+    <title>aimWeather - Planner</title>
+</head>
+
+<!-- display saved forecasts on load -->
+<body onload="displaySavedForecasts()">
+
+    <nav class="container">
+        <ul>
+            <li style="height: 60px;"><a href="#" id="theme_switcher"></a></li>
+            <li>
+                <span class="center-row-nav">
+                    <span class="material-symbols-outlined">map</span>
+                    <strong>Plan Travel</strong>
+                </span>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="travel-create.html">Plan Travel</a>
+            </li>
+            <li>
+                <a href="update-default.html">Change Home City</a>
+            </li>
+            <li>
+				<a href="about.html">About</a>
+			</li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <ul class="center-row-nav">
+            <div role="group" id="search-nav">
+                <input onkeydown="enterClicked(event)" type="text" id="city-departure"
+                    placeholder="Enter starting location">
+            </div>
+            <span class="material-symbols-outlined arrow">
+                flight_land
+            </span>
+            <div role="group" id="search-nav">
+                <input onkeydown="enterClicked(event)" type="text" id="city-arrival"
+                    placeholder="Enter destination location">
+            </div>
+        </ul>
+
+        <div class="grid">
+            <div>
+                Departing
+                <input type="datetime-local" id="departure-datetime">
+            </div>
+            <div>
+                Arriving
+                <input type="datetime-local" id="arrival-datetime">
+            </div>
+        </div>
+
+        <!-- save forecast into local storage -->
+        <div class="grid">
+            <button onclick="searchCity()">Search</button>
+            <button class="outline" id="save-button" style="display: none;">Save Forecasts</button>
+        </div>
+
+    </main>
+
+    <main class="container">
+        <div id="forecast-preview"></div>
+    </main>
+
+    <main class="container">
+        <h2 id="planned-travels-header" style="display: none;">Planned Travels</h2>
+        <div id="saved-forecasts"></div>
+    </main>
+
+    <footer class="footer">
+        <hr>
+        <h6>
+            <small>
+                &copy; 2024 diesight industries
+            </small>
+        </h6>
+    </footer>
+</body>
+
+</html>

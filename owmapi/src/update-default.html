@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/index.css" />
+	<link rel="stylesheet" href="css/pico.min.css" />
+	<script src="main.js" defer></script>
+	<script src="theme-switcher.js" defer></script>
+	<title>aimWeather - Update Default</title>
+</head>
+
+<body>
+
+	<nav class="container">
+		<ul>
+			<li style="height: 60px;"><a href="#" id="theme_switcher"></a></li>
+			<li>
+				<span class="center-row-nav">
+					<strong>Update Home City</strong>
+				</span>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="index.html">Home</a>
+			</li>
+			<li>
+				<a href="travel-create.html">Plan Travel</a>
+			</li>
+			<li>
+				<a href="update-default.html">Change Home City</a>
+			</li>
+			<li>
+				<a href="about.html">About</a>
+			</li>
+		</ul>
+	</nav>
+	<div class="container">
+		<ul id="search-toggle">
+			<div role="group" id="search-nav">
+				<input onkeydown="enterClickedUpdate(event)" type="text" id="city" placeholder="Enter city name">
+				<button onclick="searchCityUpdate()">Search</button>
+			</div>
+		</ul>
+	</div>
+
+	<main class="container">
+
+		<main class="container" id="hidden">
+			<nav>
+				<ul>
+					<li>
+						<span class="material-symbols-outlined">location_on</span>
+
+						<strong id="weather-name"></strong>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<!-- saves the queried city into local storage as default home city -->
+						<button class="outline" onclick="getCity()">Save as home city</button>
+					</li>
+				</ul>
+			</nav>
+			<div id="current-weather">
+				<div class="grid">
+					<div class="container">
+						<p id="weather-temp"></p>
+						<span class="inline">
+							<p><span id="weather-description"></span></p>
+							&bull;
+							<p data-tooltip="Humidity" id="weather-humidity"></p>
+						</span>
+						<br>
+						<span class="inline">
+							<p data-tooltip="Maximum" id="weather-temp-max"></p>
+							<p>/</p>
+							<p data-tooltip="Minimum" id="weather-temp-min"></p>
+							&bull;
+							<p>Feels like</p>
+							<p id="weather-feels-like"></p>
+						</span>
+						<p><span id="weather-description"></span></p>
+					</div>
+					<div class="center">
+						<div class="">
+							<div class="img-container">
+								<img id="weather-condition-img">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div id="forecast">
+					<h3>Weekly Forecast</h3>
+					<div id="forecast-items"></div>
+				</div>
+			</div>
+		</main>
+	</main>
+
+
+	<footer class="footer">
+		<hr>
+		<h6>
+			<small>
+				&copy; 2024 diesight industries
+			</small>
+		</h6>
+	</footer>
+</body>
+
+</html>
